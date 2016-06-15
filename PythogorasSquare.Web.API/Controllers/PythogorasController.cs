@@ -8,10 +8,11 @@ using PythogorasSquare.Web.Foundation.PsychoMatrix;
 using PythogorasSquare.Web.Foundation.Qualities;
 using PythogorasSquare.Web.Foundation.Responses;
 using PythogorasSquare.Web.Repositories;
+using PythogorasSquare.Common;
 
 namespace PythogorasSquare.Web.API.Controllers
 {
-    [RoutePrefix("rest/pythogoras")]
+    [RoutePrefix("rest/pythogoras"), UsedImplicitly]
     public class PythogorasController : ApiController
     {
         private readonly IPsychoMatrixService _psychoMatrixService;

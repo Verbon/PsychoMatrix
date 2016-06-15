@@ -113,6 +113,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PythogorasSquare.Common\PythogorasSquare.Common.csproj">
+      <Project>{e75da810-5996-410d-bf16-662479a4803a}</Project>
+      <Name>PythogorasSquare.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Web.DomainModel\PythogorasSquare.Web.DomainModel.csproj">
       <Project>{20EDF188-67AE-419A-BF0D-5866417016CF}</Project>
       <Name>PythogorasSquare.Web.DomainModel</Name>
