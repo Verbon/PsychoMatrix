@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common">
-      <HintPath>..\..\..\..\My Projects\CommonLibrary\Common\Common\bin\Release\Common.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -60,6 +57,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\PythogorasSquare.Common\PythogorasSquare.Common.csproj">
+      <Project>{e75da810-5996-410d-bf16-662479a4803a}</Project>
+      <Name>PythogorasSquare.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Repositories\PythogorasSquare.Repositories.csproj">
       <Project>{53C4EEED-C357-4135-8684-2D61D5BBD7B6}</Project>
       <Name>PythogorasSquare.Repositories</Name>

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Common.AsyncLinq;
+using PythogorasSquare.Common.AsyncLinq;
 using PythogorasSquare.Web.Foundation.Interfaces;
 using PythogorasSquare.Web.Repositories.Interfaces;
 

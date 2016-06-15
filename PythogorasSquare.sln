@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.Web.Founda
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.Web.API", "PythogorasSquare.Web.API\PythogorasSquare.Web.API.csproj", "{CA978572-88FE-42AF-AC30-2A7C2E01F9FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.Common", "PythogorasSquare.Common\PythogorasSquare.Common.csproj", "{E75DA810-5996-410D-BF16-662479A4803A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{CA978572-88FE-42AF-AC30-2A7C2E01F9FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA978572-88FE-42AF-AC30-2A7C2E01F9FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA978572-88FE-42AF-AC30-2A7C2E01F9FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E75DA810-5996-410D-BF16-662479A4803A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E75DA810-5996-410D-BF16-662479A4803A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E75DA810-5996-410D-BF16-662479A4803A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E75DA810-5996-410D-BF16-662479A4803A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 		{F0868DAB-EC9F-4B4F-88D2-E1147319F25B} = {3E2CD666-C43F-4F6C-8F17-8E47CE0D88ED}
 		{852D2DE2-FFC6-4351-BF56-2D73627C8B92} = {3E2CD666-C43F-4F6C-8F17-8E47CE0D88ED}
 		{CA978572-88FE-42AF-AC30-2A7C2E01F9FE} = {3E2CD666-C43F-4F6C-8F17-8E47CE0D88ED}
+		{E75DA810-5996-410D-BF16-662479A4803A} = {BB32A255-7714-420F-BE59-1461CB11822F}
 	EndGlobalSection
 EndGlobal
