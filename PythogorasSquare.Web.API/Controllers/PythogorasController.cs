@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
-using PythogorasSquare.Web.Foundation.Factories;
-using PythogorasSquare.Web.Foundation.Interfaces;
-using PythogorasSquare.Web.Foundation.Providers;
-using PythogorasSquare.Web.Foundation.PsychoMatrix;
-using PythogorasSquare.Web.Foundation.Qualities;
-using PythogorasSquare.Web.Foundation.Responses;
-using PythogorasSquare.Web.Repositories;
 using PythogorasSquare.Common;
+using PythogorasSquare.Web.Foundation.Interfaces;
+using PythogorasSquare.Web.Foundation.Responses;
 
 namespace PythogorasSquare.Web.API.Controllers
 {
@@ -18,15 +13,9 @@ namespace PythogorasSquare.Web.API.Controllers
         private readonly IPsychoMatrixService _psychoMatrixService;
 
 
-        public PythogorasController()
+        public PythogorasController(IPsychoMatrixService psychoMatrixService)
         {
-            var psychoMatrixUnitOfWorkFactory = new PsychoMatrixUnitOfWorkFactory();
-
-            var qualityControllerFactory = new QualityControllerFactory();
-            var qualityDetailedInfoEqualityComparer = new QualityDetailedInfoEqualityComparer();
-            var qualityControllerProvider = new CachingQualityControllerProvider(qualityControllerFactory, qualityDetailedInfoEqualityComparer);
-
-            _psychoMatrixService = new PsychoMatrixService(psychoMatrixUnitOfWorkFactory, qualityControllerProvider);
+            _psychoMatrixService = psychoMatrixService;
         }
 
 
