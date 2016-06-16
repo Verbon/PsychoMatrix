@@ -52,9 +52,9 @@
     <Compile Include="Interfaces\IPsychoMatrixUnitOfWork.cs" />
     <Compile Include="Interfaces\IPsychoMatrixUnitOfWorkFactory.cs" />
     <Compile Include="Interfaces\IQualityDetailedInfoReadOnlyRepository.cs" />
-    <Compile Include="Migrations\PsychoMatrixConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PsychoMatrixContext.cs" />
+    <Compile Include="PsychoMatrixContextInitializer.cs" />
     <Compile Include="PsychoMatrixUnitOfWork.cs" />
     <Compile Include="PsychoMatrixUnitOfWorkFactory.cs" />
     <Compile Include="Repositories\QualityDetailedInfoReadOnlyRepository.cs" />

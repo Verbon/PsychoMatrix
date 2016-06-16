@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Annotations;
 using PythogorasSquare.Repositories.Interfaces;
 using PythogorasSquare.Web.DomainModel;
-using PythogorasSquare.Web.Repositories.Migrations;
 
 namespace PythogorasSquare.Web.Repositories
 {
@@ -21,7 +20,7 @@ namespace PythogorasSquare.Web.Repositories
 
         static PsychoMatrixContext()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PsychoMatrixContext, PsychoMatrixConfiguration>(DatabaseConnectionString));
+            Database.SetInitializer(new PsychoMatrixContextInitializer());
         }
 
         public PsychoMatrixContext()
