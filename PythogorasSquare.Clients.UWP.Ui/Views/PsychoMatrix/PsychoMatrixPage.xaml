@@ -1,0 +1,82 @@
+﻿<storeApps:VisualStateAwarePage x:Class="PythogorasSquare.Clients.UWP.Ui.Views.PsychoMatrix.PsychoMatrixPage"
+                                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                xmlns:storeApps="using:Microsoft.Practices.Prism.StoreApps"
+                                xmlns:mvvm="using:Microsoft.Practices.Prism.Mvvm"
+                                xmlns:psychoMatrix="using:PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix"
+                                mvvm:ViewModelLocator.AutoWireViewModel="True"
+                                mc:Ignorable="d"
+                                d:DataContext="{d:DesignInstance psychoMatrix:PsychoMatrixViewModel}">
+
+    <storeApps:VisualStateAwarePage.Resources>
+        <ResourceDictionary Source="../../Themes/Styles.PsychoMatrix.xaml" />
+    </storeApps:VisualStateAwarePage.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideScreenState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="QualitiesGrid.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="QualitiesGrid.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.RightOf)" Value="QualitiesGrid" />
+                        <Setter Target="SeparatorRectangle.(Grid.Column)" Value="0" />
+                        <Setter Target="SelectedQualityDescription.(Grid.Column)" Value="1" />
+                        <Setter Target="SeparatorRectangle.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="SelectedQualityDescription.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="SeparatorRectangle.Style" Value="{StaticResource VerticalSeparatorRectangleStyle}" />
+                        <Setter Target="SelectedQualityDescription.Style" Value="{StaticResource VerticalScrollViewerStyle}" />
+                        <Setter Target="MainScrollViewer.Style" Value="{StaticResource DisabledScrollViewerStyle}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="MediumScreenState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="QualitiesGrid.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="QualitiesGrid.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.Below)" Value="QualitiesGrid" />
+                        <Setter Target="SeparatorRectangle.(Grid.Row)" Value="0" />
+                        <Setter Target="SelectedQualityDescription.(Grid.Row)" Value="1" />
+                        <Setter Target="SeparatorRectangle.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="SelectedQualityDescription.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="SeparatorRectangle.Style" Value="{StaticResource HorizontalSeparatorRectangleStyle}" />
+                        <Setter Target="SelectedQualityDescription.Style" Value="{StaticResource DisabledScrollViewerStyle}" />
+                        <Setter Target="MainScrollViewer.Style" Value="{StaticResource VerticalScrollViewerStyle}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ScrollViewer x:Name="MainScrollViewer">
+            <RelativePanel>
+                <GridView x:Name="QualitiesGrid" ItemsSource="{Binding Qualities}" SelectedItem="{Binding SelectedQuality, Mode=TwoWay}" />
+                <Grid x:Name="DescriptionPanel">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Rectangle x:Name="SeparatorRectangle" />
+                    <ScrollViewer x:Name="SelectedQualityDescription">
+                        <TextBlock Text="{Binding SelectedQuality.Description}" Style="{StaticResource QualityDescriptionTextBlockStyle}" />
+                    </ScrollViewer>
+                </Grid>
+            </RelativePanel>
+        </ScrollViewer>
+    </Grid>
+</storeApps:VisualStateAwarePage>

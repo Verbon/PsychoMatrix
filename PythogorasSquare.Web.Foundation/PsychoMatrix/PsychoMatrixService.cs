@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PythogorasSquare.Common.AsyncLinq;
+using PythogorasSquare.Foundation.Interfaces;
+using PythogorasSquare.Web.DomainModel;
 using PythogorasSquare.Web.Foundation.Interfaces;
 using PythogorasSquare.Web.Repositories.Interfaces;
 
@@ -14,12 +16,12 @@ namespace PythogorasSquare.Web.Foundation.PsychoMatrix
 
 
         private readonly IPsychoMatrixUnitOfWorkFactory _psychoMatrixUnitOfWorkFactory;
-        private readonly IQualityControllerProvider _qualityControllerProvider;
+        private readonly IEntityControllerProvider<QualityDetailedInfo, IQualityController> _qualityControllerProvider;
 
 
         public PsychoMatrixService(
             IPsychoMatrixUnitOfWorkFactory psychoMatrixUnitOfWorkFactory,
-            IQualityControllerProvider qualityControllerProvider)
+            IEntityControllerProvider<QualityDetailedInfo, IQualityController> qualityControllerProvider)
         {
             _psychoMatrixUnitOfWorkFactory = psychoMatrixUnitOfWorkFactory;
             _qualityControllerProvider = qualityControllerProvider;

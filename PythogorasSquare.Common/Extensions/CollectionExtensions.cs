@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace PythogorasSquare.Common.Extensions
@@ -20,6 +20,12 @@ namespace PythogorasSquare.Common.Extensions
             {
                 action(item, index++);
             }
+        }
+
+        public static void RefillWith<T>(this ICollection<T> items, IEnumerable<T> newItems)
+        {
+            items.Clear();
+            newItems.ForEach(items.Add);
         }
     }
 }

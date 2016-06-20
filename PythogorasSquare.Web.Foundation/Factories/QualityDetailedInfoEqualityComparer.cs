@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using PythogorasSquare.Common;
 using PythogorasSquare.Web.DomainModel;
 
-namespace PythogorasSquare.Web.Foundation.Qualities
+namespace PythogorasSquare.Web.Foundation.Factories
 {
+    [UsedImplicitly]
     public class QualityDetailedInfoEqualityComparer : IEqualityComparer<QualityDetailedInfo>
     {
         public bool Equals(QualityDetailedInfo x, QualityDetailedInfo y)

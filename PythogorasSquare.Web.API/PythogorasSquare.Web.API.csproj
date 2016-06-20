@@ -139,8 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PythogorasSquare.Common\PythogorasSquare.Common.csproj">
-      <Project>{e75da810-5996-410d-bf16-662479a4803a}</Project>
+      <Project>{d089d46d-8cc2-4c81-9a08-08529c5fd3bb}</Project>
       <Name>PythogorasSquare.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PythogorasSquare.Foundation\PythogorasSquare.Foundation.csproj">
+      <Project>{7d5e34e0-91ae-4ea0-8d97-ca6c90453e62}</Project>
+      <Name>PythogorasSquare.Foundation</Name>
     </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Web.DomainModel\PythogorasSquare.Web.DomainModel.csproj">
       <Project>{20EDF188-67AE-419A-BF0D-5866417016CF}</Project>

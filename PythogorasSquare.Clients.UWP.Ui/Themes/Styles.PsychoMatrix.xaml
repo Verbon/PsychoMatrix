@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="QualityDescriptionTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="WrapWholeWords" />
+    </Style>
+
+    <Style x:Key="SeparatorRectangleStyle" TargetType="Rectangle">
+        <Setter Property="Fill" Value="LightSlateGray" />
+    </Style>
+
+    <Style x:Key="VerticalSeparatorRectangleStyle" TargetType="Rectangle" BasedOn="{StaticResource SeparatorRectangleStyle}">
+        <Setter Property="Margin" Value="12,6" />
+        <Setter Property="Width" Value="2" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key="HorizontalSeparatorRectangleStyle" TargetType="Rectangle" BasedOn="{StaticResource SeparatorRectangleStyle}">
+        <Setter Property="Margin" Value="6,12" />
+        <Setter Property="Height" Value="2" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key="DisabledScrollViewerStyle" TargetType="ScrollViewer">
+        <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="VerticalScrollMode" Value="Disabled" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="HorizontalScrollMode" Value="Disabled" />
+    </Style>
+
+    <Style x:Key="VerticalScrollViewerStyle" TargetType="ScrollViewer" BasedOn="{StaticResource DisabledScrollViewerStyle}">
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="VerticalScrollMode" Value="Enabled" />
+    </Style>
+</ResourceDictionary>

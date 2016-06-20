@@ -1,0 +1,7 @@
+﻿<wpf:MvvmApplicationBase x:Class="PythogorasSquare.Clients.UWP.App"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:wpf="using:PythogorasSquare.Clients.UWP.Wpf"
+                         RequestedTheme="Light">
+
+</wpf:MvvmApplicationBase>

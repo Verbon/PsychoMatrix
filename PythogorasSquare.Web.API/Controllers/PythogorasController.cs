@@ -29,7 +29,7 @@ namespace PythogorasSquare.Web.API.Controllers
 
                 return Json(new PsychoMatrixResponse(PsychoMatrixServiceResponses.Success, qualities));
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 return Json(new PsychoMatrixResponse(PsychoMatrixServiceResponses.Failed, null));
             }

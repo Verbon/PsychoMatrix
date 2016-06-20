@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Linq;
+using PythogorasSquare.Common;
+using PythogorasSquare.Foundation.Interfaces;
 using PythogorasSquare.Web.DomainModel;
 using PythogorasSquare.Web.Foundation.Interfaces;
 using PythogorasSquare.Web.Foundation.Qualities;
 
 namespace PythogorasSquare.Web.Foundation.Factories
 {
-    public class QualityControllerFactory : IQualityControllerFactory
+    [UsedImplicitly]
+    public class QualityEntityControllerFactory : IEntityControllerFactory<QualityDetailedInfo, IQualityController>
     {
         public IQualityController CreateFrom(QualityDetailedInfo qualityDetailedInfo)
         {
