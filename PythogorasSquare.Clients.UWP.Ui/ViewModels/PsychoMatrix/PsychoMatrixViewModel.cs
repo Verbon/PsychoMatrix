@@ -60,6 +60,7 @@ namespace PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix
             _qualityViewModelProvider = qualityViewModelProvider;
 
             _qualities = new ObservableCollection<QualityViewModel>();
+            RefreshPsychoMatrixFor(new DateTime(1996, 2, 26));
         }
 
 

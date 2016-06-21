@@ -14,7 +14,7 @@
         <ResourceDictionary Source="../../Themes/Styles.PsychoMatrix.xaml" />
     </storeApps:VisualStateAwarePage.Resources>
 
-    <Grid>
+    <Grid Style="{StaticResource LayoutRootStyle}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideScreenState">
@@ -28,12 +28,14 @@
                         <Setter Target="DescriptionPanel.(RelativePanel.AlignBottomWithPanel)" Value="True" />
                         <Setter Target="DescriptionPanel.(RelativePanel.RightOf)" Value="QualitiesGrid" />
                         <Setter Target="SeparatorRectangle.(Grid.Column)" Value="0" />
-                        <Setter Target="SelectedQualityDescription.(Grid.Column)" Value="1" />
+                        <Setter Target="SelectedQualityDescriptionScrollViewer.(Grid.Column)" Value="1" />
                         <Setter Target="SeparatorRectangle.(Grid.RowSpan)" Value="2" />
-                        <Setter Target="SelectedQualityDescription.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="SelectedQualityDescriptionScrollViewer.(Grid.RowSpan)" Value="2" />
                         <Setter Target="SeparatorRectangle.Style" Value="{StaticResource VerticalSeparatorRectangleStyle}" />
-                        <Setter Target="SelectedQualityDescription.Style" Value="{StaticResource VerticalScrollViewerStyle}" />
+                        <Setter Target="SelectedQualityDescriptionScrollViewer.Style" Value="{StaticResource VerticalScrollViewerStyle}" />
+                        <Setter Target="SelectedQualityDescriptionTextBlock.Style" Value="{StaticResource WideScreenQualityDescriptionTextBlockStyle}" />
                         <Setter Target="MainScrollViewer.Style" Value="{StaticResource DisabledScrollViewerStyle}" />
+                        <Setter Target="QualitiesGrid.Style" Value="{StaticResource WideScreenQualitiesGridViewStyle}" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="MediumScreenState">
@@ -47,12 +49,14 @@
                         <Setter Target="DescriptionPanel.(RelativePanel.AlignRightWithPanel)" Value="True" />
                         <Setter Target="DescriptionPanel.(RelativePanel.Below)" Value="QualitiesGrid" />
                         <Setter Target="SeparatorRectangle.(Grid.Row)" Value="0" />
-                        <Setter Target="SelectedQualityDescription.(Grid.Row)" Value="1" />
+                        <Setter Target="SelectedQualityDescriptionScrollViewer.(Grid.Row)" Value="1" />
                         <Setter Target="SeparatorRectangle.(Grid.ColumnSpan)" Value="2" />
-                        <Setter Target="SelectedQualityDescription.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="SelectedQualityDescriptionScrollViewer.(Grid.ColumnSpan)" Value="2" />
                         <Setter Target="SeparatorRectangle.Style" Value="{StaticResource HorizontalSeparatorRectangleStyle}" />
-                        <Setter Target="SelectedQualityDescription.Style" Value="{StaticResource DisabledScrollViewerStyle}" />
+                        <Setter Target="SelectedQualityDescriptionScrollViewer.Style" Value="{StaticResource DisabledScrollViewerStyle}" />
+                        <Setter Target="SelectedQualityDescriptionTextBlock.Style" Value="{StaticResource MediumScreenQualityDescriptionTextBlockStyle}" />
                         <Setter Target="MainScrollViewer.Style" Value="{StaticResource VerticalScrollViewerStyle}" />
+                        <Setter Target="QualitiesGrid.Style" Value="{StaticResource MediumScreenQualitiesGridViewStyle}" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -60,7 +64,8 @@
 
         <ScrollViewer x:Name="MainScrollViewer">
             <RelativePanel>
-                <GridView x:Name="QualitiesGrid" ItemsSource="{Binding Qualities}" SelectedItem="{Binding SelectedQuality, Mode=TwoWay}" />
+                <GridView x:Name="QualitiesGrid" ItemsSource="{Binding Qualities}" SelectedItem="{Binding SelectedQuality, Mode=TwoWay}"
+                          ItemContainerStyle="{StaticResource QualitiesGridViewItemStyle}" />
                 <Grid x:Name="DescriptionPanel">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -72,8 +77,8 @@
                     </Grid.ColumnDefinitions>
 
                     <Rectangle x:Name="SeparatorRectangle" />
-                    <ScrollViewer x:Name="SelectedQualityDescription">
-                        <TextBlock Text="{Binding SelectedQuality.Description}" Style="{StaticResource QualityDescriptionTextBlockStyle}" />
+                    <ScrollViewer x:Name="SelectedQualityDescriptionScrollViewer">
+                        <TextBlock x:Name="SelectedQualityDescriptionTextBlock" Text="{Binding SelectedQuality.Description}" />
                     </ScrollViewer>
                 </Grid>
             </RelativePanel>

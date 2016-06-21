@@ -1,4 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <SolidColorBrush x:Key="PsDarkBlueBrush" Color="{ThemeResource PsDarkBlueColor}" />
+    <SolidColorBrush x:Key="PsDarkBlue30OpacityBrush" Color="{ThemeResource PsDarkBlueColor}" Opacity="0.3" />
+    <SolidColorBrush x:Key="PsDarkBlue60OpacityBrush" Color="{ThemeResource PsDarkBlueColor}" Opacity="0.6" />
+    <SolidColorBrush x:Key="PSDarkBlue2Brush" Color="{ThemeResource PSDarkBlue2Color}" />
+    <SolidColorBrush x:Key="PSDarkBlue230OpacityBrush" Color="{ThemeResource PSDarkBlue2Color}" Opacity="0.3" />
+    <SolidColorBrush x:Key="PSDarkBlue260OpacityBrush" Color="{ThemeResource PSDarkBlue2Color}" Opacity="0.6" />
+    <SolidColorBrush x:Key="PSLightestGrayBrush" Color="{ThemeResource PSLightestGrayColor}" />
+    <SolidColorBrush x:Key="PSLightGrayBrush" Color="{ThemeResource PSLightGrayColor}" />
+    <SolidColorBrush x:Key="PSDarkerGrayBrush" Color="{ThemeResource PSDarkerGrayColor}" />
+    <SolidColorBrush x:Key="PSDarkerGray2Brush" Color="{ThemeResource PSDarkerGray2Color}" />
 </ResourceDictionary>
