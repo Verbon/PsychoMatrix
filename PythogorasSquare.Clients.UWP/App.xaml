@@ -6,9 +6,10 @@
 
     <wpf:MvvmApplicationBase.Resources>
         <ResourceDictionary x:Key="Default">
+            <Color x:Key="PSWhiteColor">#ffffff</Color>
             <Color x:Key="PSLightGrayColor">#d5d5d5</Color>
             <Color x:Key="PSLightestGrayColor">#f2f2f2</Color>
-            <Color x:Key="PsDarkBlueColor">#0c8fe9</Color>
+            <Color x:Key="PSDarkBlueColor">#0c8fe9</Color>
             <Color x:Key="PSDarkBlue2Color">#008fef</Color>
             <Color x:Key="PSDarkerGrayColor">#383838</Color>
             <Color x:Key="PSDarkerGray2Color">#4a4a4a</Color>

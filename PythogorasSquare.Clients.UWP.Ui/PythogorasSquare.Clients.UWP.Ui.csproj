@@ -111,6 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PsychoMatrixRegions.cs" />
     <Compile Include="PsychoMatrixViews.cs" />
+    <Compile Include="ViewModels\Navigation\NavigationPanelViewModel.cs" />
     <Compile Include="ViewModels\PsychoMatrix\PsychoMatrixViewModel.cs" />
     <Compile Include="ViewModels\Qualities\QualityViewModel.cs" />
     <Compile Include="Views\PsychoMatrix\PsychoMatrixPage.xaml.cs">
@@ -139,9 +140,17 @@
       <Project>{63ACA4E4-F730-4326-ABC1-DAE647F247AA}</Project>
       <Name>PythogorasSquare.Clients.Foundation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PythogorasSquare.Clients.Resources\PythogorasSquare.Clients.Resources.csproj">
+      <Project>{e0e23763-9020-4da0-9839-49d64e88af03}</Project>
+      <Name>PythogorasSquare.Clients.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Clients.Ui\PythogorasSquare.Clients.Ui.csproj">
       <Project>{B806CA82-A7D9-4D75-AE8A-5ADF9E37A93B}</Project>
       <Name>PythogorasSquare.Clients.Ui</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PythogorasSquare.Clients.UWP.Wpf\PythogorasSquare.Clients.UWP.Wpf.csproj">
+      <Project>{AF5FF1E7-AB58-4888-ADC3-B05A6F038DC8}</Project>
+      <Name>PythogorasSquare.Clients.UWP.Wpf</Name>
     </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Common\PythogorasSquare.Common.csproj">
       <Project>{D089D46D-8CC2-4C81-9A08-08529C5FD3BB}</Project>

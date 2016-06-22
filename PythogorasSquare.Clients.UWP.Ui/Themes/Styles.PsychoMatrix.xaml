@@ -9,8 +9,19 @@
         <ResourceDictionary Source="Styles.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="LayoutRootStyle" TargetType="Grid">
-        <Setter Property="Background" Value="{StaticResource PSLightestGrayBrush}" />
+    <Style x:Key="SplitViewBaseStyle" TargetType="SplitView">
+        <Setter Property="PaneBackground" Value="{StaticResource PSLightestGrayBrush}" />
+        <Setter Property="Background" Value="{StaticResource PSLightGrayBrush}" />
+        <Setter Property="CompactPaneLength" Value="{StaticResource CompactSplitViewPaneLength}" />
+        <Setter Property="OpenPaneLength" Value="{StaticResource OpenSplitViewPanelLength}" />
+    </Style>
+
+    <Style x:Key="WideSplitViewLayoutRootStyle" TargetType="SplitView" BasedOn="{StaticResource SplitViewBaseStyle}">
+        <Setter Property="DisplayMode" Value="CompactInline" />
+    </Style>
+
+    <Style x:Key="MediumSplitViewLayoutRootStyle" TargetType="SplitView" BasedOn="{StaticResource SplitViewBaseStyle}">
+        <Setter Property="DisplayMode" Value="CompactOverlay" />
     </Style>
 
     <Style x:Key="WideScreenQualityDescriptionTextBlockStyle" TargetType="TextBlock">
@@ -49,6 +60,12 @@
     <Style x:Key="VerticalScrollViewerStyle" TargetType="ScrollViewer" BasedOn="{StaticResource DisabledScrollViewerStyle}">
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="VerticalScrollMode" Value="Enabled" />
+    </Style>
+
+    <Style x:Key="DatePickerStyle" TargetType="DatePicker">
+        <Setter Property="Margin" Value="12" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
 
     <Style x:Key="QualitiesGridViewItemStyle" TargetType="GridViewItem">

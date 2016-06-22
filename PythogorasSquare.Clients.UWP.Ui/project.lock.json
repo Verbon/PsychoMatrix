@@ -267,6 +267,14 @@
           "lib/windows8/Microsoft.Practices.Prism.SharedInterfaces.dll": {}
         }
       },
+      "Prism.PubSubEvents/1.1.2": {
+        "compile": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        },
+        "runtime": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        }
+      },
       "Prism.StoreApps/2.0.0": {
         "dependencies": {
           "Prism.Mvvm": "1.1.1"
@@ -2072,6 +2080,14 @@
           "lib/windows8/Microsoft.Practices.Prism.SharedInterfaces.dll": {}
         }
       },
+      "Prism.PubSubEvents/1.1.2": {
+        "compile": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        },
+        "runtime": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        }
+      },
       "Prism.StoreApps/2.0.0": {
         "dependencies": {
           "Prism.Mvvm": "1.1.1"
@@ -3723,6 +3739,14 @@
           "lib/windows8/Microsoft.Practices.Prism.SharedInterfaces.dll": {}
         }
       },
+      "Prism.PubSubEvents/1.1.2": {
+        "compile": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        },
+        "runtime": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        }
+      },
       "Prism.StoreApps/2.0.0": {
         "dependencies": {
           "Prism.Mvvm": "1.1.1"
@@ -5370,6 +5394,14 @@
           "lib/windows8/Microsoft.Practices.Prism.Mvvm.Store.dll": {},
           "lib/windows8/Microsoft.Practices.Prism.Mvvm.dll": {},
           "lib/windows8/Microsoft.Practices.Prism.SharedInterfaces.dll": {}
+        }
+      },
+      "Prism.PubSubEvents/1.1.2": {
+        "compile": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        },
+        "runtime": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
         }
       },
       "Prism.StoreApps/2.0.0": {
@@ -7023,6 +7055,14 @@
           "lib/windows8/Microsoft.Practices.Prism.SharedInterfaces.dll": {}
         }
       },
+      "Prism.PubSubEvents/1.1.2": {
+        "compile": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        },
+        "runtime": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        }
+      },
       "Prism.StoreApps/2.0.0": {
         "dependencies": {
           "Prism.Mvvm": "1.1.1"
@@ -8670,6 +8710,14 @@
           "lib/windows8/Microsoft.Practices.Prism.Mvvm.Store.dll": {},
           "lib/windows8/Microsoft.Practices.Prism.Mvvm.dll": {},
           "lib/windows8/Microsoft.Practices.Prism.SharedInterfaces.dll": {}
+        }
+      },
+      "Prism.PubSubEvents/1.1.2": {
+        "compile": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        },
+        "runtime": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
         }
       },
       "Prism.StoreApps/2.0.0": {
@@ -10321,6 +10369,14 @@
           "lib/windows8/Microsoft.Practices.Prism.Mvvm.Store.dll": {},
           "lib/windows8/Microsoft.Practices.Prism.Mvvm.dll": {},
           "lib/windows8/Microsoft.Practices.Prism.SharedInterfaces.dll": {}
+        }
+      },
+      "Prism.PubSubEvents/1.1.2": {
+        "compile": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
+        },
+        "runtime": {
+          "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll": {}
         }
       },
       "Prism.StoreApps/2.0.0": {
@@ -12357,6 +12413,15 @@
         "lib/wpa81/Microsoft.Practices.Prism.Mvvm.xml",
         "lib/wpa81/Microsoft.Practices.Prism.SharedInterfaces.dll",
         "lib/wpa81/Microsoft.Practices.Prism.SharedInterfaces.xml"
+      ]
+    },
+    "Prism.PubSubEvents/1.1.2": {
+      "sha512": "HAoUgbr8tk8soVy7L7xVS6CWgXwS/7/Qd6TZBcuaxRdw1R/SFhIjdTYtBJ7Cchc2UW7Wtc2rGb68oljgpqT0VA==",
+      "type": "package",
+      "files": [
+        "Prism.PubSubEvents.1.1.2.nupkg.sha512",
+        "Prism.PubSubEvents.nuspec",
+        "lib/portable-sl5+windowsphone8+windows8+net40+wpa81/Microsoft.Practices.Prism.PubSubEvents.dll"
       ]
     },
     "Prism.StoreApps/2.0.0": {
