@@ -18,6 +18,7 @@ using PythogorasSquare.Clients.Ui.Interfaces;
 using PythogorasSquare.Clients.Ui.Providers;
 using PythogorasSquare.Clients.UWP.Ui;
 using PythogorasSquare.Clients.UWP.Ui.Factories;
+using PythogorasSquare.Clients.UWP.Ui.ViewModels.Navigation;
 using PythogorasSquare.Clients.UWP.Ui.ViewModels.Qualities;
 using PythogorasSquare.Clients.UWP.Wpf;
 using PythogorasSquare.Clients.UWP.Wpf.ViewViewModelTypeResolver;
@@ -67,6 +68,8 @@ namespace PythogorasSquare.Clients.UWP
             _container.RegisterType<IControllerViewModelProvider<IQualityController, QualityViewModel>, CachingControllerViewModelProvider<IQualityController, QualityViewModel>>(new ContainerControlledLifetimeManager());
 
             _container.RegisterType<IPsychoMatrixService, PsychoMatrixService>(new ContainerControlledLifetimeManager());
+
+            _container.RegisterType<NavigationPanelViewModel>(new ContainerControlledLifetimeManager());
 
             ViewModelLocationProvider.SetDefaultViewModelFactory(Resolve);
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(GetViewModelType);

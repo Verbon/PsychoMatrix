@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.Practices.Prism.Mvvm;
 using PythogorasSquare.Clients.Foundation.Interfaces;
 using PythogorasSquare.Clients.Ui.Interfaces;
+using PythogorasSquare.Clients.UWP.Ui.ViewModels.Navigation;
 using PythogorasSquare.Clients.UWP.Ui.ViewModels.Qualities;
 using PythogorasSquare.Common;
 using PythogorasSquare.Common.Extensions;
@@ -17,12 +18,14 @@ namespace PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix
         private readonly IPsychoMatrixService _psychoMatrixService;
         private readonly IControllerViewModelProvider<IQualityController, QualityViewModel> _qualityViewModelProvider;
 
-        private DateTime _birthDate;
+        private DateTimeOffset _birthDate;
         private readonly ObservableCollection<QualityViewModel> _qualities;
         private QualityViewModel _selectedQuality;
 
 
-        public DateTime BirthDate
+        public NavigationPanelViewModel NavigationPanelViewModel { get; }
+
+        public DateTimeOffset BirthDate
         {
             get
             {
@@ -33,6 +36,10 @@ namespace PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix
                 if (SetProperty(ref _birthDate, value))
                 {
                     RefreshPsychoMatrixFor(_birthDate);
+                    if (NavigationPanelViewModel.IsPanelOpen)
+                    {
+                        NavigationPanelViewModel.TogglePanelCommand.TryExecute();
+                    }
                 }
             }
         }
@@ -54,21 +61,26 @@ namespace PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix
 
         public PsychoMatrixViewModel(
             IPsychoMatrixService psychoMatrixService,
-            IControllerViewModelProvider<IQualityController, QualityViewModel> qualityViewModelProvider)
+            IControllerViewModelProvider<IQualityController, QualityViewModel> qualityViewModelProvider,
+            NavigationPanelViewModel navigationPanelViewModel)
         {
             _psychoMatrixService = psychoMatrixService;
             _qualityViewModelProvider = qualityViewModelProvider;
+            NavigationPanelViewModel = navigationPanelViewModel;
 
             _qualities = new ObservableCollection<QualityViewModel>();
+
+            BirthDate = DateTimeOffset.Now;
         }
 
 
-        private async void RefreshPsychoMatrixFor(DateTime birthDate)
+        private async void RefreshPsychoMatrixFor(DateTimeOffset birthDate)
         {
-            var qualityControllers = await _psychoMatrixService.GetPsychoMatrixForAsync(birthDate);
+            var qualityControllers = await _psychoMatrixService.GetPsychoMatrixForAsync(birthDate.DateTime);
             var qualityViewModels = qualityControllers.Select(_qualityViewModelProvider.GetViewModelFor).ToList();
 
             _qualities.RefillWith(qualityViewModels);
+            SelectedQuality = _qualities.First();
         }
     }
 }
