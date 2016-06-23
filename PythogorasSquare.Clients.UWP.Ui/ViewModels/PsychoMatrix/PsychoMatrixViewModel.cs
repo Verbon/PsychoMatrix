@@ -21,7 +21,20 @@ namespace PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix
         private DateTimeOffset _birthDate;
         private readonly ObservableCollection<QualityViewModel> _qualities;
         private QualityViewModel _selectedQuality;
+        private bool _isLoading;
 
+
+        public bool IsLoading
+        {
+            get
+            {
+                return _isLoading;
+            }
+            private set
+            {
+                SetProperty(ref _isLoading, value);
+            }
+        }
 
         public NavigationPanelViewModel NavigationPanelViewModel { get; }
 
@@ -76,11 +89,13 @@ namespace PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix
 
         private async void RefreshPsychoMatrixFor(DateTimeOffset birthDate)
         {
+            IsLoading = true;
             var qualityControllers = await _psychoMatrixService.GetPsychoMatrixForAsync(birthDate.DateTime);
             var qualityViewModels = qualityControllers.Select(_qualityViewModelProvider.GetViewModelFor).ToList();
 
             _qualities.RefillWith(qualityViewModels);
             SelectedQuality = _qualities.First();
+            IsLoading = false;
         }
     }
 }

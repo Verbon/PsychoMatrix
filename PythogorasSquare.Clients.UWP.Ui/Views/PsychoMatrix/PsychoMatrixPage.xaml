@@ -22,11 +22,11 @@
                         <AdaptiveTrigger MinWindowWidth="1024" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="QualitiesGrid.(RelativePanel.AlignTopWithPanel)" Value="True" />
-                        <Setter Target="QualitiesGrid.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+                        <Setter Target="QualitiesInfoPanel.(RelativePanel.AlignTopWithPanel)" Value="True" />
+                        <Setter Target="QualitiesInfoPanel.(RelativePanel.AlignBottomWithPanel)" Value="True" />
                         <Setter Target="DescriptionPanel.(RelativePanel.AlignTopWithPanel)" Value="True" />
                         <Setter Target="DescriptionPanel.(RelativePanel.AlignBottomWithPanel)" Value="True" />
-                        <Setter Target="DescriptionPanel.(RelativePanel.RightOf)" Value="QualitiesGrid" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.RightOf)" Value="QualitiesInfoPanel" />
                         <Setter Target="SeparatorRectangle.(Grid.Column)" Value="0" />
                         <Setter Target="SelectedQualityDescriptionScrollViewer.(Grid.Column)" Value="1" />
                         <Setter Target="SeparatorRectangle.(Grid.RowSpan)" Value="2" />
@@ -36,6 +36,7 @@
                         <Setter Target="SelectedQualityDescriptionTextBlock.Style" Value="{StaticResource WideScreenQualityDescriptionTextBlockStyle}" />
                         <Setter Target="MainScrollViewer.Style" Value="{StaticResource DisabledScrollViewerStyle}" />
                         <Setter Target="QualitiesGrid.Style" Value="{StaticResource WideScreenQualitiesGridViewStyle}" />
+                        <Setter Target="BirthDateTextBlock.Style" Value="{StaticResource WideBirthDateTextBlockStyle}" />
                         <Setter Target="NavigationSplitView.Style" Value="{StaticResource WideSplitViewLayoutRootStyle}" />
                     </VisualState.Setters>
                 </VisualState>
@@ -44,11 +45,11 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="QualitiesGrid.(RelativePanel.AlignLeftWithPanel)" Value="True" />
-                        <Setter Target="QualitiesGrid.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="QualitiesInfoPanel.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="QualitiesInfoPanel.(RelativePanel.AlignRightWithPanel)" Value="True" />
                         <Setter Target="DescriptionPanel.(RelativePanel.AlignLeftWithPanel)" Value="True" />
                         <Setter Target="DescriptionPanel.(RelativePanel.AlignRightWithPanel)" Value="True" />
-                        <Setter Target="DescriptionPanel.(RelativePanel.Below)" Value="QualitiesGrid" />
+                        <Setter Target="DescriptionPanel.(RelativePanel.Below)" Value="QualitiesInfoPanel" />
                         <Setter Target="SeparatorRectangle.(Grid.Row)" Value="0" />
                         <Setter Target="SelectedQualityDescriptionScrollViewer.(Grid.Row)" Value="1" />
                         <Setter Target="SeparatorRectangle.(Grid.ColumnSpan)" Value="2" />
@@ -58,6 +59,7 @@
                         <Setter Target="SelectedQualityDescriptionTextBlock.Style" Value="{StaticResource MediumScreenQualityDescriptionTextBlockStyle}" />
                         <Setter Target="MainScrollViewer.Style" Value="{StaticResource VerticalScrollViewerStyle}" />
                         <Setter Target="QualitiesGrid.Style" Value="{StaticResource MediumScreenQualitiesGridViewStyle}" />
+                        <Setter Target="BirthDateTextBlock.Style" Value="{StaticResource MediumBirthDateTextBlockStyle}" />
                         <Setter Target="NavigationSplitView.Style" Value="{StaticResource MediumSplitViewLayoutRootStyle}" />
                     </VisualState.Setters>
                 </VisualState>
@@ -77,27 +79,51 @@
                 </Grid>
             </SplitView.Pane>
 
-            <ScrollViewer x:Name="MainScrollViewer">
-                <RelativePanel>
-                    <GridView x:Name="QualitiesGrid" ItemsSource="{Binding Qualities}" SelectedItem="{Binding SelectedQuality, Mode=TwoWay}"
-                              ItemContainerStyle="{StaticResource QualitiesGridViewItemStyle}" />
-                    <Grid x:Name="DescriptionPanel">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <Rectangle x:Name="SeparatorRectangle" />
-                        <ScrollViewer x:Name="SelectedQualityDescriptionScrollViewer">
-                            <TextBlock x:Name="SelectedQualityDescriptionTextBlock" Text="{Binding SelectedQuality.Description}" />
+            <Grid>
+                <ScrollViewer x:Name="MainScrollViewer">
+                    <RelativePanel>
+                        <ScrollViewer x:Name="QualitiesInfoPanel" Style="{StaticResource QualitiesInfoPanelStyle}">
+                            <StackPanel>
+                                <TextBlock x:Name="BirthDateTextBlock">
+                                    <TextBlock.Text>
+                                        <Binding Path="BirthDate" Converter="{StaticResource FormattedDateTimeConverter}">
+                                            <Binding.ConverterParameter>
+                                                <x:String>MMMM dd, yyyy</x:String>
+                                            </Binding.ConverterParameter>
+                                        </Binding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <GridView x:Name="QualitiesGrid" ItemsSource="{Binding Qualities}" SelectedItem="{Binding SelectedQuality, Mode=TwoWay}"
+                                          ItemContainerStyle="{StaticResource QualitiesGridViewItemStyle}" />
+                            </StackPanel>
                         </ScrollViewer>
-                    </Grid>
-                </RelativePanel>
-            </ScrollViewer>
+                        <Grid x:Name="DescriptionPanel">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Rectangle x:Name="SeparatorRectangle" />
+                            <ScrollViewer x:Name="SelectedQualityDescriptionScrollViewer">
+                                <TextBlock x:Name="SelectedQualityDescriptionTextBlock" Text="{Binding SelectedQuality.Description}" />
+                            </ScrollViewer>
+                        </Grid>
+                    </RelativePanel>
+                </ScrollViewer>
+
+                <Rectangle Style="{StaticResource LightOverlayRectangleStyle}"
+                           Visibility="{Binding NavigationPanelViewModel.IsPanelOpen, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Rectangle Style="{StaticResource OverlayRectangleStyle}" />
+                    <ProgressRing Style="{StaticResource LoadingProgressRingStyle}" IsActive="{Binding IsLoading}" />
+                </Grid>
+            </Grid>
         </SplitView>
     </Grid>
 </storeApps:VisualStateAwarePage>

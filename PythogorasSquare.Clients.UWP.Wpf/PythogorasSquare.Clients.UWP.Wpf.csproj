@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Converters\BooleanConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\FormattedConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\InverseBooleanToVisibilityConverter.cs" />
     <Compile Include="EventAggregatorContext.cs" />

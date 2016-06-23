@@ -9,6 +9,7 @@
     <x:Double x:Key="OpenSplitViewPanelLength">300</x:Double>
 
     <SolidColorBrush x:Key="PsWhiteBrush" Color="{ThemeResource PSWhiteColor}" />
+    <SolidColorBrush x:Key="PsBlackBrush" Color="{ThemeResource PSBlackColor}" />
     <SolidColorBrush x:Key="PsDarkBlueBrush" Color="{ThemeResource PSDarkBlueColor}" />
     <SolidColorBrush x:Key="PsDarkBlue30OpacityBrush" Color="{ThemeResource PSDarkBlueColor}" Opacity="0.3" />
     <SolidColorBrush x:Key="PsDarkBlue60OpacityBrush" Color="{ThemeResource PSDarkBlueColor}" Opacity="0.6" />
@@ -24,6 +25,7 @@
     <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
     <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
+    <converters:FormattedConverter x:Key="FormattedDateTimeConverter" />
 
     <Style x:Key="Mdl2ButtonStyle" TargetType="Button">
         <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
