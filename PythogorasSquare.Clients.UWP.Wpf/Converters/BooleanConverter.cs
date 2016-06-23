@@ -17,13 +17,9 @@ namespace PythogorasSquare.Clients.UWP.Wpf.Converters
 
 
         public object Convert(object value, Type targetType, object parameter, string language)
-        {
-            return System.Convert.ToBoolean(value) ? _trueValue : _falseValue;
-        }
+            => System.Convert.ToBoolean(value) ? _trueValue : _falseValue;
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            return value is T && ((T) value).Equals(_trueValue);
-        }
+            => value is T && ((T) value).Equals(_trueValue);
     }
 }

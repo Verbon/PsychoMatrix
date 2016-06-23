@@ -9,9 +9,38 @@
         <ResourceDictionary Source="Styles.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="OverlayRectangleStyle" TargetType="Rectangle">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Fill" Value="{StaticResource PsBlackBrush}" />
+        <Setter Property="Opacity" Value="0.4" />
+    </Style>
+
+    <Style x:Key="LightOverlayRectangleStyle" TargetType="Rectangle" BasedOn="{StaticResource OverlayRectangleStyle}">
+        <Setter Property="Opacity" Value="0.2" />
+    </Style>
+
+    <Style x:Key="LoadingProgressRingStyle" TargetType="ProgressRing">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Width" Value="60" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource PsWhiteBrush}" />
+    </Style>
+
+    <Style x:Key="QualitiesInfoPanelStyle" TargetType="ScrollViewer">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="HorizontalScrollMode" Value="Disabled" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="VerticalScrollMode" Value="Auto" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+    </Style>
+
     <Style x:Key="SplitViewBaseStyle" TargetType="SplitView">
-        <Setter Property="PaneBackground" Value="{StaticResource PSLightestGrayBrush}" />
-        <Setter Property="Background" Value="{StaticResource PSLightGrayBrush}" />
+        <Setter Property="PaneBackground" Value="{StaticResource PsWhiteBrush}" />
+        <Setter Property="Background" Value="{StaticResource PSLightestGrayBrush}" />
         <Setter Property="CompactPaneLength" Value="{StaticResource CompactSplitViewPaneLength}" />
         <Setter Property="OpenPaneLength" Value="{StaticResource OpenSplitViewPanelLength}" />
     </Style>
@@ -24,7 +53,22 @@
         <Setter Property="DisplayMode" Value="CompactOverlay" />
     </Style>
 
+    <Style x:Key="WideBirthDateTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="27" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0,20,0,60" />
+    </Style>
+
+    <Style x:Key="MediumBirthDateTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource WideBirthDateTextBlockStyle}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Margin" Value="0,5,0,15" />
+    </Style>
+
     <Style x:Key="WideScreenQualityDescriptionTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource PSDarkerGrayBrush}" />
+        <Setter Property="FontSize" Value="23" />
+        <Setter Property="FontWeight" Value="SemiLight" />
         <Setter Property="TextAlignment" Value="Justify" />
         <Setter Property="TextWrapping" Value="WrapWholeWords" />
         <Setter Property="Margin" Value="0,15,20,15" />
