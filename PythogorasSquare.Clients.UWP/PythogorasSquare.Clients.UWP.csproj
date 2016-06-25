@@ -89,6 +89,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="ApplicationConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +129,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PythogorasSquare.Client.Store.Configuration\PythogorasSquare.Client.Store.Configuration.csproj">
+      <Project>{70f742aa-404e-4480-85af-99556d58937f}</Project>
+      <Name>PythogorasSquare.Client.Store.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Clients.Foundation\PythogorasSquare.Clients.Foundation.csproj">
       <Project>{63ACA4E4-F730-4326-ABC1-DAE647F247AA}</Project>
       <Name>PythogorasSquare.Clients.Foundation</Name>

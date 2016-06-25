@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using PythogorasSquare.Clients.ServiceClients.DataContracts.Responses;
 using PythogorasSquare.Clients.ServiceClients.Interfaces;
 using PythogorasSquare.Common;
+using PythogorasSquare.Common.Configuration;
 using PythogorasSquare.Common.Serializers;
 
 namespace PythogorasSquare.Clients.ServiceClients
@@ -12,6 +13,7 @@ namespace PythogorasSquare.Clients.ServiceClients
     [UsedImplicitly]
     public class PythogorasSquareService : IPythogorasSquareService
     {
+        private const string ServiceUrlKey = "ServiceUrl";
         private const double ServiceResponseTimeoutInMinutes = 5;
 
         private const string GetPsychoMatrixMethod = "rest/pythogoras/psychoMatrix/{0}/{1}/{2}";
@@ -21,10 +23,10 @@ namespace PythogorasSquare.Clients.ServiceClients
         private readonly IJsonSerializer _jsonSerializer;
 
 
-        public PythogorasSquareService(IJsonSerializer jsonSerializer)
+        public PythogorasSquareService(IAppConfigService appConfig, IJsonSerializer jsonSerializer)
         {
             _jsonSerializer = jsonSerializer;
-            _pythogorasSquareBaseAddress = new Uri("http://localhost:5671/");
+            _pythogorasSquareBaseAddress = new Uri(appConfig.GetString(ServiceUrlKey));
         }
 
 

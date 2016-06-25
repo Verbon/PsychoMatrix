@@ -8,6 +8,7 @@ using Windows.UI.ViewManagement;
 using Microsoft.ApplicationInsights;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Unity;
+using PythogorasSquare.Client.Store.Configuration;
 using PythogorasSquare.Clients.Foundation.Factories;
 using PythogorasSquare.Clients.Foundation.Interfaces;
 using PythogorasSquare.Clients.Foundation.Services;
@@ -22,6 +23,7 @@ using PythogorasSquare.Clients.UWP.Ui.ViewModels.Navigation;
 using PythogorasSquare.Clients.UWP.Ui.ViewModels.Qualities;
 using PythogorasSquare.Clients.UWP.Wpf;
 using PythogorasSquare.Clients.UWP.Wpf.ViewViewModelTypeResolver;
+using PythogorasSquare.Common.Configuration;
 using PythogorasSquare.Common.Serializers;
 using PythogorasSquare.Foundation.Interfaces;
 using PythogorasSquare.Foundation.Providers;
@@ -30,6 +32,8 @@ namespace PythogorasSquare.Clients.UWP
 {
     public sealed partial class App
     {
+        private const string ApplicationConfigurationFileUri = "ms-appx:///ApplicationConfiguration.json";
+
         private readonly UnityContainer _container;
         private readonly IViewViewModelTypeResolver _viewViewModelTypeResolver;
 
@@ -47,13 +51,18 @@ namespace PythogorasSquare.Clients.UWP
         protected override IShell CreateShell()
             => new Shell();
 
-        protected override Task OnInitializeAsync(IActivatedEventArgs args)
+        protected async override Task OnInitializeAsync(IActivatedEventArgs args)
         {
             _container.RegisterInstance(_viewViewModelTypeResolver);
             _container.RegisterInstance(new Func<Type, object>(Resolve));
             _container.RegisterInstance(RegionNavigationService);
 
             _container.RegisterType<IJsonSerializer, JsonSerializer>(new ContainerControlledLifetimeManager());
+
+            _container.RegisterType<IAppConfigService, AppConfigService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IAppConfigServiceInitializer, AppConfigService>(new ContainerControlledLifetimeManager());
+            var appConfigServiceInitializer = _container.Resolve<IAppConfigServiceInitializer>();
+            await appConfigServiceInitializer.InitializeAsync(new Uri(ApplicationConfigurationFileUri));
 
             _container.RegisterType<IPythogorasSquareService, PythogorasSquareService>(new ContainerControlledLifetimeManager());
 
@@ -74,7 +83,7 @@ namespace PythogorasSquare.Clients.UWP
             ViewModelLocationProvider.SetDefaultViewModelFactory(Resolve);
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(GetViewModelType);
 
-            return base.OnInitializeAsync(args);
+            await base.OnInitializeAsync(args);
         }
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)

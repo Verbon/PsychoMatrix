@@ -1,0 +1,11 @@
+﻿{
+  "Version": "1.0.0.0",
+  "Entries": [
+    {
+      "IsApplicationLevel": true,
+      "SerializeAs": "String",
+      "Name": "ServiceUrl",
+      "Value": "http://localhost:5671/"
+    }
+  ]
+}
