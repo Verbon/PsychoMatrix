@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PythogorasSquare.Clients.Foundation\PythogorasSquare.Clients.Foundation.csproj">
-      <Project>{63ACA4E4-F730-4326-ABC1-DAE647F247AA}</Project>
+      <Project>{63aca4e4-f730-4326-abc1-dae647f247aa}</Project>
       <Name>PythogorasSquare.Clients.Foundation</Name>
     </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Clients.Resources\PythogorasSquare.Clients.Resources.csproj">

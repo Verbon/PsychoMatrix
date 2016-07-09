@@ -60,6 +60,10 @@
     <Compile Include="Repositories\QualityDetailedInfoReadOnlyRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PythogorasSquare.Common\PythogorasSquare.Common.csproj">
+      <Project>{D089D46D-8CC2-4C81-9A08-08529C5FD3BB}</Project>
+      <Name>PythogorasSquare.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PythogorasSquare.Repositories\PythogorasSquare.Repositories.csproj">
       <Project>{53C4EEED-C357-4135-8684-2D61D5BBD7B6}</Project>
       <Name>PythogorasSquare.Repositories</Name>

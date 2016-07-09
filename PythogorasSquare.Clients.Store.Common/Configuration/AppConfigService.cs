@@ -9,7 +9,7 @@ using PythogorasSquare.Common;
 using PythogorasSquare.Common.Configuration;
 using PythogorasSquare.Common.Serializers;
 
-namespace PythogorasSquare.Client.Store.Configuration
+namespace PythogorasSquare.Clients.Store.Common.Configuration
 {
     [UsedImplicitly]
     public class AppConfigService : IAppConfigService, IAppConfigServiceInitializer

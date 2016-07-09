@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Windows.UI.Xaml.Navigation;
 using Microsoft.Practices.Prism.Mvvm;
 using PythogorasSquare.Clients.Foundation.Interfaces;
 using PythogorasSquare.Clients.Ui.Interfaces;
@@ -82,19 +83,43 @@ namespace PythogorasSquare.Clients.UWP.Ui.ViewModels.PsychoMatrix
             NavigationPanelViewModel = navigationPanelViewModel;
 
             _qualities = new ObservableCollection<QualityViewModel>();
+        }
 
-            BirthDate = DateTimeOffset.Now;
+
+        public override async void OnNavigatedTo(object navigationParameter, NavigationMode navigationMode, Dictionary<string, object> viewModelState)
+        {
+            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+
+            IsLoading = true;
+            var lastSeenPsychoMatrix = await _psychoMatrixService.GetLastSeenPsychoMatrixOrDefaultAsync();
+            _birthDate = lastSeenPsychoMatrix.Item1;
+            OnPropertyChanged(() => BirthDate);
+
+            var qualityControllers = lastSeenPsychoMatrix.Item2;
+            var qualityViewModels = qualityControllers.Select(_qualityViewModelProvider.GetViewModelFor).ToList();
+            _qualities.RefillWith(qualityViewModels);
+            SelectedQuality = _qualities.First();
+            IsLoading = false;
         }
 
 
         private async void RefreshPsychoMatrixFor(DateTimeOffset birthDate)
         {
-            IsLoading = true;
-            var qualityControllers = await _psychoMatrixService.GetPsychoMatrixForAsync(birthDate.DateTime);
-            var qualityViewModels = qualityControllers.Select(_qualityViewModelProvider.GetViewModelFor).ToList();
+            if (IsLoading)
+            {
+                return;
+            }
 
-            _qualities.RefillWith(qualityViewModels);
-            SelectedQuality = _qualities.First();
+            IsLoading = true;
+            var qualityControllersResult = await _psychoMatrixService.GetPsychoMatrixForAsync(birthDate.DateTime);
+            if (qualityControllersResult.IsSuccessful)
+            {
+                var qualityControllers = qualityControllersResult.Result;
+                var qualityViewModels = qualityControllers.Select(_qualityViewModelProvider.GetViewModelFor).ToList();
+
+                _qualities.RefillWith(qualityViewModels);
+                SelectedQuality = _qualities.First();
+            }
             IsLoading = false;
         }
     }

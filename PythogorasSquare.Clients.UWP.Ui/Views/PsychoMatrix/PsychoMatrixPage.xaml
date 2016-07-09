@@ -75,7 +75,8 @@
                     </Grid.RowDefinitions>
                     <Button Command="{Binding NavigationPanelViewModel.TogglePanelCommand}" Style="{StaticResource HamburgerButtonStyle}" />
                     <DatePicker Grid.Row="1" Date="{Binding BirthDate, Mode=TwoWay}" Style="{StaticResource DatePickerStyle}"
-                                Visibility="{Binding NavigationPanelViewModel.IsPanelOpen, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                Visibility="{Binding NavigationPanelViewModel.IsPanelOpen, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                IsEnabled="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}"/>
                 </Grid>
             </SplitView.Pane>
 

@@ -8,13 +8,15 @@ using Windows.UI.ViewManagement;
 using Microsoft.ApplicationInsights;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Unity;
-using PythogorasSquare.Client.Store.Configuration;
 using PythogorasSquare.Clients.Foundation.Factories;
 using PythogorasSquare.Clients.Foundation.Interfaces;
 using PythogorasSquare.Clients.Foundation.Services;
 using PythogorasSquare.Clients.ServiceClients;
 using PythogorasSquare.Clients.ServiceClients.DataContracts;
 using PythogorasSquare.Clients.ServiceClients.Interfaces;
+using PythogorasSquare.Clients.Store.Common.Caching;
+using PythogorasSquare.Clients.Store.Common.Configuration;
+using PythogorasSquare.Clients.Store.Common.Storage;
 using PythogorasSquare.Clients.Ui.Interfaces;
 using PythogorasSquare.Clients.Ui.Providers;
 using PythogorasSquare.Clients.UWP.Ui;
@@ -23,6 +25,7 @@ using PythogorasSquare.Clients.UWP.Ui.ViewModels.Navigation;
 using PythogorasSquare.Clients.UWP.Ui.ViewModels.Qualities;
 using PythogorasSquare.Clients.UWP.Wpf;
 using PythogorasSquare.Clients.UWP.Wpf.ViewViewModelTypeResolver;
+using PythogorasSquare.Common.Caching;
 using PythogorasSquare.Common.Configuration;
 using PythogorasSquare.Common.Serializers;
 using PythogorasSquare.Foundation.Interfaces;
@@ -64,6 +67,8 @@ namespace PythogorasSquare.Clients.UWP
             var appConfigServiceInitializer = _container.Resolve<IAppConfigServiceInitializer>();
             await appConfigServiceInitializer.InitializeAsync(new Uri(ApplicationConfigurationFileUri));
 
+            _container.RegisterType<IStorageManager, StorageManager>(new ContainerControlledLifetimeManager());
+
             _container.RegisterType<IPythogorasSquareService, PythogorasSquareService>(new ContainerControlledLifetimeManager());
 
             _container.RegisterType<IEntityControllerFactory<ServiceQuality, IQualityController>, ServiceQualityControllerFactory>(new ContainerControlledLifetimeManager());
@@ -76,7 +81,11 @@ namespace PythogorasSquare.Clients.UWP
 
             _container.RegisterType<IControllerViewModelProvider<IQualityController, QualityViewModel>, CachingControllerViewModelProvider<IQualityController, QualityViewModel>>(new ContainerControlledLifetimeManager());
 
+            _container.RegisterType<IContentCacheService, ContentCacheService>(new ContainerControlledLifetimeManager());
+
             _container.RegisterType<IPsychoMatrixService, PsychoMatrixService>(new ContainerControlledLifetimeManager());
+            var psychoMatrixService = _container.Resolve<IPsychoMatrixService>();
+            await psychoMatrixService.InitializeAsync();
 
             _container.RegisterType<NavigationPanelViewModel>(new ContainerControlledLifetimeManager());
 
