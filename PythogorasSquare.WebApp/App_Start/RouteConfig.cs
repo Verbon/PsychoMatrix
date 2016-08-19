@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -15,9 +12,14 @@ namespace PythogorasSquare.WebApp
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "",
+                defaults: new { controller = "Home", action = "PsychoMatrix" }
             );
+
+            routes.MapRoute(
+                name: "DefaultApi",
+                url: "api/{controller}/{action}/{year}/{month}/{day}",
+                defaults: new { controller = "pythogoras", action = "psychoMatrix", year = DateTime.UtcNow.Year, month = DateTime.UtcNow.Month, day = DateTime.UtcNow.Day });
         }
     }
 }

@@ -1,0 +1,17 @@
+﻿@model PythogorasSquare.WebApp.ViewModels.Home.PsychoMatrixViewModel
+
+<div>
+    <ul>
+        @foreach (var quality in @Model.Qualities)
+        {
+            <li>
+                <p>
+                    <b>@quality.Name</b> - <i>@quality.Power</i>
+                </p>
+                <p>
+                    @quality.Description
+                </p>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,30 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using PythogorasSquare.Web.Foundation.Interfaces;
+using PythogorasSquare.WebApp.ViewModels.Home;
+using PythogorasSquare.WebApp.ViewModels.Qualities;
 
 namespace PythogorasSquare.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IPsychoMatrixService _psychoMatrixService;
+
+
+        public HomeController(IPsychoMatrixService psychoMatrixService)
         {
-            return View();
+            _psychoMatrixService = psychoMatrixService;
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
+        public async Task<ActionResult> PsychoMatrix()
+        {
+            var qualities = await _psychoMatrixService.GetQualitiesForAsync(DateTime.UtcNow);
+            var qualitiesViewModels = qualities.Select(CreateForm).ToList();
+            var psychoMatrixViewModel = new PsychoMatrixViewModel(qualitiesViewModels);
+
+            return View(psychoMatrixViewModel);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+        private static QualityViewModel CreateForm(IQualityController qualityController)
+        {
+            var qualityViewModel = new QualityViewModel(qualityController.Name, qualityController.Power, qualityController.Description);
+
+            return qualityViewModel;
         }
     }
 }

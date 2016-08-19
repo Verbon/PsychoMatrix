@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Web.Http;
+using System.Web.Mvc;
 using PythogorasSquare.Common;
 using PythogorasSquare.Web.Foundation.Interfaces;
 using PythogorasSquare.Web.Foundation.Responses;
 
-namespace PythogorasSquare.Web.API.Controllers
+namespace PythogorasSquare.WebApp.Controllers
 {
-    [RoutePrefix("rest/pythogoras"), UsedImplicitly]
-    public class PythogorasController : ApiController
+    [RoutePrefix("api/pythogoras"), UsedImplicitly]
+    public class PythogorasController : Controller
     {
         private readonly IPsychoMatrixService _psychoMatrixService;
 
@@ -20,18 +20,18 @@ namespace PythogorasSquare.Web.API.Controllers
 
 
         [ActionName("psychoMatrix")]
-        public async Task<IHttpActionResult> GetPsychoMatrixFor(int year, int month, int day)
+        public async Task<ActionResult> GetPsychoMatrixFor(int year, int month, int day)
         {
             try
             {
                 var birthDate = new DateTime(year, month, day);
                 var qualities = await _psychoMatrixService.GetQualitiesForAsync(birthDate);
 
-                return Json(new PsychoMatrixResponse(PsychoMatrixServiceResponses.Success, qualities));
+                return Json(new PsychoMatrixResponse(PsychoMatrixServiceResponses.Success, qualities), JsonRequestBehavior.AllowGet);
             }
             catch (ArgumentException)
             {
-                return Json(new PsychoMatrixResponse(PsychoMatrixServiceResponses.Failed, null));
+                return Json(new PsychoMatrixResponse(PsychoMatrixServiceResponses.Failed, null), JsonRequestBehavior.AllowGet);
             }
         }
     }

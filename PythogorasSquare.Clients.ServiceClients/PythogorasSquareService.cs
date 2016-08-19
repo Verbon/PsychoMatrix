@@ -14,9 +14,9 @@ namespace PythogorasSquare.Clients.ServiceClients
     public class PythogorasSquareService : IPythogorasSquareService
     {
         private const string ServiceUrlKey = "ServiceUrl";
-        private const double ServiceResponseTimeoutInMinutes = 5;
+        private const double ServiceResponseTimeoutInSeconds = 30;
 
-        private const string GetPsychoMatrixMethod = "rest/pythogoras/psychoMatrix/{0}/{1}/{2}";
+        private const string GetPsychoMatrixMethod = "api/pythogoras/psychoMatrix/{0}/{1}/{2}";
 
         private readonly Uri _pythogorasSquareBaseAddress;
 
@@ -72,7 +72,7 @@ namespace PythogorasSquare.Clients.ServiceClients
             var httpClient = new HttpClient
             {
                 BaseAddress = _pythogorasSquareBaseAddress,
-                Timeout = TimeSpan.FromMinutes(ServiceResponseTimeoutInMinutes)
+                Timeout = TimeSpan.FromSeconds(ServiceResponseTimeoutInSeconds)
             };
 
             return httpClient;
