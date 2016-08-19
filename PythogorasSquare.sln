@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.Clients.Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.Clients.Store.Common", "PythogorasSquare.Clients.Store.Common\PythogorasSquare.Clients.Store.Common.csproj", "{1118A9DA-0044-47BA-B7F9-43C01A8D3BE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.WebApp", "PythogorasSquare.WebApp\PythogorasSquare.WebApp.csproj", "{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -297,6 +299,22 @@ Global
 		{1118A9DA-0044-47BA-B7F9-43C01A8D3BE0}.Release|x64.Build.0 = Release|Any CPU
 		{1118A9DA-0044-47BA-B7F9-43C01A8D3BE0}.Release|x86.ActiveCfg = Release|Any CPU
 		{1118A9DA-0044-47BA-B7F9-43C01A8D3BE0}.Release|x86.Build.0 = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|ARM.Build.0 = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|x64.Build.0 = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Debug|x86.Build.0 = Debug|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|ARM.ActiveCfg = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|ARM.Build.0 = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|x64.ActiveCfg = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|x64.Build.0 = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|x86.ActiveCfg = Release|Any CPU
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -318,5 +336,6 @@ Global
 		{B806CA82-A7D9-4D75-AE8A-5ADF9E37A93B} = {158D4ED0-7CF2-4710-BFDA-24B841887D14}
 		{E0E23763-9020-4DA0-9839-49D64E88AF03} = {158D4ED0-7CF2-4710-BFDA-24B841887D14}
 		{1118A9DA-0044-47BA-B7F9-43C01A8D3BE0} = {158D4ED0-7CF2-4710-BFDA-24B841887D14}
+		{DCBB297A-D43B-4498-BE37-66E2DAD4DCA8} = {3E2CD666-C43F-4F6C-8F17-8E47CE0D88ED}
 	EndGlobalSection
 EndGlobal
