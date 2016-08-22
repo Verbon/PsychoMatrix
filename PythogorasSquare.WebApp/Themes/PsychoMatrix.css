@@ -1,0 +1,22 @@
+﻿.date-of-birth-picker-container {
+    position: fixed;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #3498db;
+}
+
+.qualities {
+    margin: 25px auto;
+}
+
+.separator {
+    margin: 0 20px;
+    background-color: #2980b9;
+    height: 2px;
+}
+
+.selected-quality-description {
+    text-align: justify;
+    text-indent: 20px;
+    margin: 25px 20px;
+}

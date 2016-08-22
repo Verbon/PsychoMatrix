@@ -1,4 +1,7 @@
-﻿namespace PythogorasSquare.WebApp.ViewModels.Qualities
+﻿using System;
+using PythogorasSquare.Web.Resources.MultilingualResources;
+
+namespace PythogorasSquare.WebApp.ViewModels.Qualities
 {
     public class QualityViewModel
     {
@@ -12,7 +15,7 @@
         public QualityViewModel(string name, string power, string description)
         {
             Name = name;
-            Power = power;
+            Power = String.IsNullOrWhiteSpace(power) ? PsResources.No : power;
             Description = description;
         }
     }

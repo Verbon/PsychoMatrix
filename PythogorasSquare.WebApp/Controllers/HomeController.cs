@@ -19,11 +19,18 @@ namespace PythogorasSquare.WebApp.Controllers
         }
 
 
-        public async Task<ActionResult> PsychoMatrix()
+        [HttpGet]
+        public Task<ActionResult> PsychoMatrix()
         {
-            var qualities = await _psychoMatrixService.GetQualitiesForAsync(DateTime.UtcNow);
+            return PsychoMatrix(DateTime.UtcNow);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> PsychoMatrix(DateTime dateOfBirth)
+        {
+            var qualities = await _psychoMatrixService.GetQualitiesForAsync(dateOfBirth);
             var qualitiesViewModels = qualities.Select(CreateForm).ToList();
-            var psychoMatrixViewModel = new PsychoMatrixViewModel(qualitiesViewModels);
+            var psychoMatrixViewModel = new PsychoMatrixViewModel(dateOfBirth, qualitiesViewModels);
 
             return View(psychoMatrixViewModel);
         }

@@ -1,0 +1,32 @@
+﻿.quality {
+    align-self: center;
+}
+
+
+@media all and (max-width: 899px) {
+    .quality {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media all and (min-width: 900px) {
+    .quality {
+        width: 125px;
+        height: 125px;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .quality {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media all and (min-width: 1600px) {
+    .quality {
+        width: 200px;
+        height: 200px;
+    }
+}

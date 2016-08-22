@@ -1,0 +1,19 @@
+﻿.date-of-birth-picker-form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    width: 7.9%;
+    height: 60px;
+}
+
+.date-of-birth-picker-form__date {
+    align-self: center;
+}
+
+.date-of-birth-picker-form__submit {
+    align-self: center;
+}

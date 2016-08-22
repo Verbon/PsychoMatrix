@@ -12,7 +12,7 @@ namespace PythogorasSquare.WebApp
 
             routes.MapRoute(
                 name: "Default",
-                url: "",
+                url: "{controller}/{action}",
                 defaults: new { controller = "Home", action = "PsychoMatrix" }
             );
 

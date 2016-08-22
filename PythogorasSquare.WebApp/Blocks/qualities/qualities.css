@@ -1,0 +1,38 @@
+﻿.qualities {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+
+    padding: 0;
+}
+
+
+@media all and (max-width: 899px) {
+    .qualities {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+@media all and (min-width: 900px) {
+    .qualities {
+        width: 415px;
+        height: 415px;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .qualities {
+        width: 510px;
+        height: 510px;
+    }
+}
+
+@media all and (min-width: 1600px) {
+    .qualities {
+        width: 680px;
+        height: 680px;
+    }
+}

@@ -1,17 +1,49 @@
-﻿@model PythogorasSquare.WebApp.ViewModels.Home.PsychoMatrixViewModel
+﻿@using PythogorasSquare.Web.Resources.MultilingualResources;
+
+@model PythogorasSquare.WebApp.ViewModels.Home.PsychoMatrixViewModel
+
+@{
+    const string nonePowerQualityClassName = "quality-info__power_none";
+    const string selectedQualityClassName = "quality-info_selected";
+
+    var defaultSelectedQuality = Model.Qualities[0];
+    ViewBag.Title = $"{PsResources.DateOfBirth} - {Model.DateOfBirth.ToShortDateString()}";
+}
+
+@section Styles {
+    @Styles.Render("~/Themes/PsychoMatrix.css")
+
+    @Styles.Render("~/Blocks/qualities/qualities.css")
+    @Styles.Render("~/Blocks/qualities/quality.css")
+    @Styles.Render("~/Blocks/qualities/quality-info.css")
+
+    @Styles.Render("~/Blocks/date-of-birth-picker/date-of-birth-picker.css")
+}
 
 <div>
-    <ul>
+    <div class="date-of-birth-picker-container">
+        @using (Html.BeginForm("PsychoMatrix", "Home", FormMethod.Post, new { @class = "date-of-birth-picker-form" }))
+        {
+            <input class="date-of-birth-picker-form__date" type="date" name="dateOfBirth" value="@Model.DateOfBirth.ToString("yyyy-MM-dd")" />
+            <input class="date-of-birth-picker-form__submit" type="submit" value="@PsResources.Calculate" />
+        }
+    </div>
+    <ul class="qualities">
         @foreach (var quality in @Model.Qualities)
         {
-            <li>
-                <p>
-                    <b>@quality.Name</b> - <i>@quality.Power</i>
-                </p>
-                <p>
-                    @quality.Description
-                </p>
+            <li class="quality quality-info @(quality == defaultSelectedQuality ? selectedQualityClassName : String.Empty)">
+                <span class="quality-info__name">@quality.Name</span>
+                <span class="quality-info__power @(String.Equals(quality.Power, PsResources.No, StringComparison.Ordinal) ? nonePowerQualityClassName : String.Empty)">@quality.Power</span>
+                <span class="quality-info__description">@quality.Description</span>
             </li>
         }
     </ul>
+    <div class="separator"></div>
+    <div class="selected-quality-description">
+        @defaultSelectedQuality.Description
+    </div>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/Blocks/qualities/quality-info.js")
+}

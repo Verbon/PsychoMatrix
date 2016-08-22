@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.Clients.St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.WebApp", "PythogorasSquare.WebApp\PythogorasSquare.WebApp.csproj", "{F423AF28-17D2-4B24-A98A-59A191E59B4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythogorasSquare.Web.Resources", "PythogorasSquare.Web.Resources\PythogorasSquare.Web.Resources.csproj", "{7E0629BB-A367-44E9-A5DC-7532EF1E9307}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -297,6 +299,22 @@ Global
 		{F423AF28-17D2-4B24-A98A-59A191E59B4E}.Release|x64.Build.0 = Release|Any CPU
 		{F423AF28-17D2-4B24-A98A-59A191E59B4E}.Release|x86.ActiveCfg = Release|Any CPU
 		{F423AF28-17D2-4B24-A98A-59A191E59B4E}.Release|x86.Build.0 = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|x64.Build.0 = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Debug|x86.Build.0 = Debug|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|ARM.Build.0 = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|x64.ActiveCfg = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|x64.Build.0 = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -318,5 +336,6 @@ Global
 		{E0E23763-9020-4DA0-9839-49D64E88AF03} = {158D4ED0-7CF2-4710-BFDA-24B841887D14}
 		{1118A9DA-0044-47BA-B7F9-43C01A8D3BE0} = {158D4ED0-7CF2-4710-BFDA-24B841887D14}
 		{F423AF28-17D2-4B24-A98A-59A191E59B4E} = {3E2CD666-C43F-4F6C-8F17-8E47CE0D88ED}
+		{7E0629BB-A367-44E9-A5DC-7532EF1E9307} = {3E2CD666-C43F-4F6C-8F17-8E47CE0D88ED}
 	EndGlobalSection
 EndGlobal
