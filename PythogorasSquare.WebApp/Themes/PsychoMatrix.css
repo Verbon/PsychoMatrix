@@ -3,10 +3,11 @@
     width: 100%;
     padding: 10px 0;
     background-color: #3498db;
+    margin: -105px 0 0 0;
 }
 
 .qualities {
-    margin: 25px auto;
+    margin: 105px auto 25px auto;
 }
 
 .separator {
